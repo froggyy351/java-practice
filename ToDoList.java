@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/* 参考記事　https://qiita.com/EasyCoder/items/311a70719a3ae0b14ca7 */
 public class ToDoList {
     ArrayList<String> tasks = new ArrayList<>();
 
