@@ -10,7 +10,7 @@ public class ToDoList {
 
     public void removeTask(int index){
         if (index >= 0 && index < tasks.size()) {
-            tasks.remove(index);            
+            tasks.remove(index - 1);            
         } else {
             System.out.println("無効なインデックスです。");
         }
@@ -29,13 +29,14 @@ public class ToDoList {
         Scanner scanner = new Scanner(System.in, "UTF-8");
 
         while(true){
+            System.out.println("");
             System.out.println("■操作を選択してください。");
+            System.out.println("");
             System.out.println("１．タスクを追加");
             System.out.println("２．タスクを削除");
             System.out.println("３．タスクを表示");
             System.out.println("４．終了");
             System.out.println("");
-            System.out.println(">");
 
             int userChoice = scanner.nextInt();
             scanner.nextLine();                        //改行が残っていた場合に捨てるため。 
