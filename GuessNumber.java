@@ -14,14 +14,25 @@ public class GuessNumber {
         //テスト用
         // System.out.println("答えは、" + randomNum);
 
-        int inputNum = scanner.nextInt();
+        int inputNum = 101;
+        int answerCount = 0;
 
-        if (inputNum == randomNum) {
-            System.out.println("大正解！");
-        } else {
-            System.out.println("残念。また挑戦してね。");
+        while(inputNum != randomNum) {
+            answerCount ++;
+            inputNum = scanner.nextInt();
+
+            if (inputNum == randomNum) {
+               System.out.println("大正解！");
+               System.out.println(answerCount + "回で正解できました");
+            } else if (inputNum > randomNum) {
+                System.out.println("もっと小さい値です");
+            } else if (inputNum < randomNum) {
+                System.out.println("もっと大きい値です");
+            }
+
+
         }
-
+        
         scanner.close();
     }
 }
