@@ -22,15 +22,12 @@ public class GuessNumber {
             inputNum = scanner.nextInt();
 
             if (inputNum == randomNum) {
-               System.out.println("大正解！");
-               System.out.println(answerCount + "回で正解できました");
+               System.out.println("大正解！　" + answerCount + "回で正解できました");
             } else if (inputNum > randomNum) {
                 System.out.println("もっと小さい値です");
             } else if (inputNum < randomNum) {
                 System.out.println("もっと大きい値です");
             }
-
-
         }
         
         scanner.close();
