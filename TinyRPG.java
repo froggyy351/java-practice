@@ -15,6 +15,7 @@ public class TinyRPG {
             System.out.println("あなた HP: " + playerHp);
             System.out.println("敵 HP: " + enemyHp);
             System.out.println("");
+            scanner.nextLine();
             System.out.println("行動を選んでください");
             System.out.println("1. 攻撃");
             System.out.println("2. 回復");
@@ -23,32 +24,47 @@ public class TinyRPG {
 
             switch (command) {
                 case 1:
-                    enemyHp -= random.nextInt(11) + 10;
+                    int damageToEnemy = random.nextInt(11) + 10;
+                    enemyHp -= damageToEnemy;
+                    System.out.println("敵に" + damageToEnemy + "のダメージを与えた");
+                    scanner.nextLine();
                     break;
                 case 2:
-                    playerHp += random.nextInt(6) + 5;
+                    int healHp = random.nextInt(6) + 5;
+                    playerHp += healHp;
+                    System.out.println("あなたは" + healHp + "回復した！");
                     if (playerHp > 100){
                         playerHp = 100;   //回復は100を超えない。
                     }
+                    scanner.nextLine();
                     break;
                 case 3:
-                    enemyHp -= random.nextInt(11) + 10;
+                    System.out.println("プレイヤーは逃げ出した！");
+                    scanner.nextLine();
                     break;            
                 default:
                     System.out.println("不正な値です。入力し直してください。");
+                    scanner.nextLine();
                     continue;
             }
 
             System.out.println("-- 敵のターン --");
             System.out.println("敵は攻撃を繰り出した！");
+            scanner.nextLine();
 
-            playerHp -= random.nextInt(11) + 10;
-            System.out.println("-- 敵のターン --");
+            int damage = random.nextInt(11) + 10;
+            playerHp -= damage;
+            System.out.println("あなたは" + damage + "のダメージを受けた！");
+            scanner.nextLine();
 
             if (enemyHp <= 0) {
                 System.out.println("YOU WIN !!");
+                scanner.nextLine();
+                break;
             } else if (playerHp <= 0) {
                 System.out.println("YOU LOSE, GAME OVER...");
+                scanner.nextLine();
+                break;
             } else {
                 continue;
             }
