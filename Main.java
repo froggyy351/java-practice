@@ -1,9 +1,15 @@
+import java.awt.FlowLayout;
 import java.util.ArrayList;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 public class Main {
     public static void main(String[] args) {
         System.out.println("Hello World.");
 
+        //Person.javaの、toString()関数をオーバーライドしたからテスト
         Person granpa = new Person();
         granpa.setAge(80);
         granpa.setName("おじい");;
@@ -19,6 +25,7 @@ public class Main {
         granpa.setName("おばあ");
         System.out.println( granma.equals(granpa) );
 
+        //ArrayListをおためし
         ArrayList<String> array = new ArrayList<>();
 
         array.add("わし");
@@ -32,5 +39,16 @@ public class Main {
         for(int i = 0; i < array.size(); i++){
             System.out.println(array.get(i));
         }
+
+        //ボタンを表示させる。
+        JFrame frame = new JFrame("はじめてのGUI");
+        JLabel label = new JLabel("Hello World");
+        JButton button = new JButton("押してね");
+        frame.getContentPane().setLayout(new FlowLayout());
+        frame.getContentPane().add(label);
+        frame.getContentPane().add(button);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(300, 100);
+        frame.setVisible(true);
     }
 }
